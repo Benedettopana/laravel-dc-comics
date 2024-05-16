@@ -17,8 +17,8 @@
                     <p class="card-title"> {{ $comic->series }}</p>
                     <p class="card-title"> {{ $comic->sale_date }}</p>
                     <p class="card-title"> {{ $comic->type }}</p>
-                    <p class="card-title"> {{ $comic->artists }}</p>
-                    <p class="card-title"> {{ $comic->writers }}</p>
+                    <p class="card-title"> Artists: {{ $comic->artists }}</p>
+                    <p class="card-title"> Writers:{{ $comic->writers }}</p>
                     <p class="text-primary"> {{ $comic->price }}</p>
                     <div class="d-flex justify-content-center ">
 
