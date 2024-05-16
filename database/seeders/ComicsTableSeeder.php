@@ -27,10 +27,9 @@ class ComicsTableSeeder extends Seeder
             $new_comic->series = $comic['series'];
             $new_comic->sale_date = $comic['sale_date'];
             $new_comic->type = $comic['type'];
-            $new_comic->artists = Helper::createStrToArray($comic['artists']);
-            $new_comic->writers = Helper::createStrToArray($comic['writers']);
-            // $new_comic->writers = $comic['writers'];
-            // $new_comic->writers = $comic['writers'];
+            $new_comic->artists =  json_encode($comic['artists']);
+            $new_comic->writers =  json_encode($comic['writers']);
+
             $new_comic->save();
             // dd($new_comic);
         }
