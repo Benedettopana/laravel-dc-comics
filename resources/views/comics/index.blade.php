@@ -5,6 +5,12 @@
 <h1>comics</h1>
 
 <div class="container-xl">
+    @if (session('deleted'))
+    <div class="alert alert-info my-5 " role="alert">
+        {{ session('deleted')}}
+    </div>
+
+    @endif
     <div class="row row-cols-3 ">
         @foreach ($comics as $comic)
         <div class="col ">
@@ -34,7 +40,7 @@
                         <i class="fa-solid fa-trash"></i>
                     </button>
                     </form>
-                    {{-- <a href="{{ route('comics.edit', $comic)}}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a> --}}
+
                     </div>
                 </div>
             </div>
