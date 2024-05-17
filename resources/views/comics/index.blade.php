@@ -20,9 +20,12 @@
                     <p class="card-title"> Artists: {{ $comic->artists }}</p>
                     <p class="card-title"> Writers: {{ $comic->writers }}</p>
                     <p class="text-primary"> {{ $comic->price }}</p>
-                    <div class="d-flex justify-content-center ">
-
+                    <div class="d-flex justify-content-center justify-content-between ">
+                    {{-- More info --}}
                     <a href="{{ route('comics.show', $comic)}}" class="btn btn-warning">More info</a>
+
+                    {{-- Edit --}}
+                    <a href="{{ route('comics.edit', $comic)}}" class="btn btn-success"><i class="fa-solid fa-pen"></i></a>
                     </div>
                 </div>
             </div>
