@@ -20,12 +20,21 @@
                     <p class="card-title"> Artists: {{ $comic->artists }}</p>
                     <p class="card-title"> Writers: {{ $comic->writers }}</p>
                     <p class="text-primary"> {{ $comic->price }}</p>
-                    <div class="d-flex justify-content-center justify-content-between ">
+                    <div class="d-flex justify-content-center  ">
                     {{-- More info --}}
-                    <a href="{{ route('comics.show', $comic)}}" class="btn btn-warning">More info</a>
+                    <a href="{{ route('comics.show', $comic)}}" class="btn btn-warning me-1">More info</a>
 
-                    {{-- Edit --}}
-                    <a href="{{ route('comics.edit', $comic)}}" class="btn btn-success"><i class="fa-solid fa-pen"></i></a>
+                    {{--? Edit --}}
+                    <a href="{{ route('comics.edit', $comic)}}" class="btn btn-success me-1"><i class="fa-solid fa-pen"></i></a>
+                    {{--! delete --}}
+                    <form action="{{ route('comics.destroy', $comic) }} metho" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button class="btn btn-danger">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                    </form>
+                    {{-- <a href="{{ route('comics.edit', $comic)}}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a> --}}
                     </div>
                 </div>
             </div>
