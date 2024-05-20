@@ -3,6 +3,19 @@
 @section('content')
 
 <div class="container-xl my-5">
+
+    {{-- !Alert --}}
+    @if ($errors ->any())
+        <div class="alert alert-danger" role="alert">
+            <ul>
+                @foreach ($errors->all() as $error )
+                    <li>{{$error}}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
+    {{-- !/Alert --}}
     <form action="{{ route('comics.store')}}" method="POST">
         @csrf
         <div class="row row-cols-2 ">
@@ -10,7 +23,20 @@
                 {{--? Titolo --}}
                 <div class="mb-3">
                     <label for="title" class="form-label">Aggiungi il titolo</label>
-                    <input type="text" class="form-control" id="title" name="title">
+                    <input
+                        type="text"
+                        class="form-control @error('title')
+                            is-invalid
+                        @enderror"
+                        id="title"
+                        name="title"
+                        value="{{ old('title')}}"
+                    >
+                    @error('title')
+                        <small class="text-danger">
+                            {{ $message}}
+                        </small>
+                    @enderror
                 </div>
                 {{--? /Titolo --}}
             </div>
@@ -34,7 +60,20 @@
                 {{--? Prezzo --}}
                 <div class="mb-3">
                     <label for="price" class="form-label">Aggiungi il prezzo</label>
-                    <input type="text" class="form-control" id="price" name="price">
+                    <input
+                      type="text"
+                      class="form-control @error('title')
+                      is-invalid
+                  @enderror"
+                      id="price"
+                      name="price"
+                      value="{{ old('price')}}"
+                    >
+                    @error('title')
+                        <small class="text-danger">
+                            {{ $message}}
+                        </small>
+                    @enderror
                 </div>
                 {{--? /Prezzo --}}
             </div>
@@ -42,7 +81,20 @@
                 {{--? series --}}
                 <div class="mb-3">
                     <label for="series" class="form-label">Aggiungi la serie</label>
-                    <input type="text" class="form-control" id="series" name="series">
+                    <input
+                      type="text"
+                      class="form-control @error('title')
+                      is-invalid
+                  @enderror"
+                      id="series"
+                      name="series"
+                      value="{{ old('series')}}"
+                    >
+                    @error('title')
+                        <small class="text-danger">
+                            {{ $message}}
+                        </small>
+                    @enderror
                 </div>
                 {{--? /series --}}
             </div>
@@ -50,15 +102,42 @@
                 {{--? sale_date --}}
                 <div class="mb-3">
                     <label for="sale_date" class="form-label">Aggiungi la data</label>
-                    <input type="text" class="form-control" id="sale_date" name="sale_date">
+                    <input
+                      type="text"
+                      class="form-control @error('title')
+                      is-invalid
+                  @enderror"
+                      id="sale_date"
+                      name="sale_date"
+                      value="{{ old('sale_date')}}"
+                    >
+                    @error('title')
+                        <small class="text-danger">
+                            {{ $message}}
+                        </small>
+                    @enderror
                 </div>
+
                 {{--? /sale_date --}}
             </div>
             <div class="col ">
                 {{--? type --}}
                 <div class="mb-3">
                     <label for="type" class="form-label">Aggiungi il tipo</label>
-                    <input type="text" class="form-control" id="type" name="type">
+                    <input
+                      type="text"
+                      class="form-control @error('title')
+                      is-invalid
+                  @enderror"
+                      id="type"
+                      name="type"
+                      value="{{ old('type')}}"
+                    >
+                    @error('title')
+                        <small class="text-danger">
+                            {{ $message}}
+                        </small>
+                    @enderror
                 </div>
                 {{--? /type --}}
             </div>
