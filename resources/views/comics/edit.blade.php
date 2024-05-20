@@ -3,6 +3,17 @@
 @section('content')
 
 <div class="container-xl my-5">
+    {{-- !Alert --}}
+    @if ($errors ->any())
+        <div class="alert alert-danger" role="alert">
+            <ul>
+                @foreach ($errors->all() as $error )
+                    <li>{{$error}}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    {{-- !/Alert --}}
     <form action="{{ route('comics.update', $comic)}}" method="POST">
         @csrf
         @method('PUT')
@@ -13,11 +24,18 @@
                     <label for="title" class="form-label">Aggiungi il titolo</label>
                     <input
                       type="text"
-                      class="form-control"
+                      class="form-control @error('title')
+                      is-invalid
+                  @enderror"
                       id="title"
                       name="title"
                       value="{{$comic->title}}"
                     >
+                    @error('title')
+                        <small class="text-danger">
+                            {{ $message}}
+                        </small>
+                    @enderror
                 </div>
                 {{--? /Titolo --}}
             </div>
@@ -45,7 +63,6 @@
                       id="thumb"
                       name="thumb"
                       value="{{$comic->thumb}}"
-
                     >
                 </div>
                 {{--? /img --}}
@@ -56,11 +73,18 @@
                     <label for="price" class="form-label">Aggiungi il prezzo</label>
                     <input
                       type="text"
-                      class="form-control"
+                      class="form-control @error('price')
+                      is-invalid
+                  @enderror"
                       id="price"
                       name="price"
                       value="{{$comic->price}}"
                     >
+                    @error('price')
+                        <small class="text-danger">
+                            {{ $message}}
+                        </small>
+                    @enderror
                 </div>
                 {{--? /Prezzo --}}
             </div>
@@ -70,11 +94,18 @@
                     <label for="series" class="form-label">Aggiungi la serie</label>
                     <input
                       type="text"
-                      class="form-control"
+                      class="form-control @error('series')
+                      is-invalid
+                  @enderror"
                       id="series"
                       name="series"
                       value="{{$comic->series}}"
                     >
+                    @error('series')
+                        <small class="text-danger">
+                            {{ $message}}
+                        </small>
+                    @enderror
                 </div>
                 {{--? /series --}}
             </div>
@@ -84,11 +115,18 @@
                     <label for="sale_date" class="form-label">Aggiungi la data</label>
                     <input
                       type="text"
-                      class="form-control"
+                      class="form-control @error('sale_date')
+                      is-invalid
+                  @enderror"
                       id="sale_date"
                       name="sale_date"
                       value="{{$comic->sale_date}}"
                     >
+                    @error('sale_date')
+                        <small class="text-danger">
+                            {{ $message}}
+                        </small>
+                    @enderror
                 </div>
                 {{--? /sale_date --}}
             </div>
@@ -98,11 +136,19 @@
                     <label for="type" class="form-label">Aggiungi il tipo</label>
                     <input
                       type="text"
-                      class="form-control"
+                      class="form-control @error('type')
+                      is-invalid
+                  @enderror"
                       id="type"
                       name="type"
                       value="{{$comic->type}}"
                     >
+
+                    @error('type')
+                        <small class="text-danger">
+                            {{ $message}}
+                        </small>
+                    @enderror
                 </div>
                 {{--? /type --}}
             </div>

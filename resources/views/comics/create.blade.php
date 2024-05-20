@@ -44,7 +44,7 @@
                 {{--? Descrizione --}}
                 <div class="mb-3">
                     <label for="description" class="form-label">Aggiungi la descrizione</label>
-                    <input type="text" class="form-control" id="description" name="description">
+                    <input type="text" class="form-control" id="description" name="description" value="{{ old('description')}}">
                 </div>
                 {{--? /Descrizione --}}
             </div>
@@ -52,7 +52,7 @@
                 {{--? img --}}
                 <div class="mb-3">
                     <label for="thumb" class="form-label">Aggiungi la thumb</label>
-                    <input type="text" class="form-control" id="thumb" name="thumb">
+                    <input type="text" class="form-control" id="thumb" name="thumb" value="{{ old('thumb')}}">
                 </div>
                 {{--? /img --}}
             </div>
@@ -62,14 +62,14 @@
                     <label for="price" class="form-label">Aggiungi il prezzo</label>
                     <input
                       type="text"
-                      class="form-control @error('title')
+                      class="form-control @error('price')
                       is-invalid
                   @enderror"
                       id="price"
                       name="price"
                       value="{{ old('price')}}"
                     >
-                    @error('title')
+                    @error('price')
                         <small class="text-danger">
                             {{ $message}}
                         </small>
@@ -83,14 +83,14 @@
                     <label for="series" class="form-label">Aggiungi la serie</label>
                     <input
                       type="text"
-                      class="form-control @error('title')
+                      class="form-control @error('series')
                       is-invalid
                   @enderror"
                       id="series"
                       name="series"
                       value="{{ old('series')}}"
                     >
-                    @error('title')
+                    @error('series')
                         <small class="text-danger">
                             {{ $message}}
                         </small>
@@ -104,14 +104,14 @@
                     <label for="sale_date" class="form-label">Aggiungi la data</label>
                     <input
                       type="text"
-                      class="form-control @error('title')
+                      class="form-control @error('sale_date')
                       is-invalid
                   @enderror"
                       id="sale_date"
                       name="sale_date"
                       value="{{ old('sale_date')}}"
                     >
-                    @error('title')
+                    @error('sale_date')
                         <small class="text-danger">
                             {{ $message}}
                         </small>
@@ -126,14 +126,14 @@
                     <label for="type" class="form-label">Aggiungi il tipo</label>
                     <input
                       type="text"
-                      class="form-control @error('title')
+                      class="form-control @error('type')
                       is-invalid
                   @enderror"
                       id="type"
                       name="type"
                       value="{{ old('type')}}"
                     >
-                    @error('title')
+                    @error('type')
                         <small class="text-danger">
                             {{ $message}}
                         </small>
@@ -145,7 +145,7 @@
                 {{--? artists --}}
                 <div class="mb-3">
                     <label for="artists" class="form-label">Aggiungi gli artisti</label>
-                    <input type="text" class="form-control" id="artists" name="artists">
+                    <input type="text" class="form-control" id="artists" name="artists" value="{{ old('artists')}}">
                 </div>
                 {{--? /artists --}}
             </div>
@@ -153,7 +153,7 @@
                 {{--? writers --}}
                 <div class="mb-3">
                     <label for="writers" class="form-label">Aggiungi gli scrittori</label>
-                    <input type="text" class="form-control" id="writers" name="writers">
+                    <input type="text" class="form-control" id="writers" name="writers" value="{{ old('writers')}}">
                 </div>
                 {{--? /writers --}}
             </div>
